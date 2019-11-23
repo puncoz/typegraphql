@@ -1,7 +1,8 @@
-import { Arg, FieldResolver, Mutation, Query, Root } from "type-graphql"
+import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql"
 import { ProjectData, projects, TaskData, tasks } from "../data"
 import Task from "../schemas/Task"
 
+@Resolver(of => Task)
 export default class {
     @Query(returns => [Task])
     fetchTasks(): TaskData[] {
